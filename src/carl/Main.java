@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
-public class Main {
+public class Main implements ActionListener {
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -19,26 +19,29 @@ public class Main {
 		CarlWidget carl = new CarlWidget();
 		JTextArea input = new JTextArea("This is where your code will go");
 		JTextArea goals = new JTextArea();
-//		JButton button = new JButton("Submit");
-//		button.setPreferredSize(new Dimension(40, 40));
+		JPanel panel = new JPanel();
+		JButton button = new JButton("Submit");
+		button.setActionCommand("submit");
 		goals.setBackground(Color.GRAY);
 		input.setBackground(Color.BLACK);
 		input.setForeground(Color.WHITE);
 		goals.setEditable(false);
 		goals.setText("Do this:");
 
-		frame.setLayout(new GridLayout(3, 1));
+		frame.setLayout(new GridLayout(4, 1));
 
 		frame.add(carl);
 		frame.add(input);
 		frame.add(goals);
+		frame.add(panel);
+		panel.add(button);
 
 		frame.pack();
 		frame.setVisible(true);
 		frame.setSize(1600, 800);
 
 		int x = 0;
-		while(x < 220) {
+		while(x < 150) {
 			carl.moveCarlVertical();
 			carl.repaint();
 			Thread.sleep(2);
@@ -62,5 +65,13 @@ public class Main {
 			}
 		}*/
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if("submit".equals(e.getActionCommand())) {
+			
+		}
+		
 	}
 }
