@@ -1,1 +1,1 @@
-Code Carl is a game that teaches people to code.
+Code Carl. More details to come.
