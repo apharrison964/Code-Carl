@@ -1,4 +1,4 @@
-package carl;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,56 +22,41 @@ public class Main implements ActionListener {
 		JPanel panel = new JPanel();
 		JButton button = new JButton("Submit");
 		button.setActionCommand("submit");
+		//button.addActionListener(carl); 
 		goals.setBackground(Color.GRAY);
 		input.setBackground(Color.BLACK);
 		input.setForeground(Color.WHITE);
 		goals.setEditable(false);
 		goals.setText("Do this:");
 
-		frame.setLayout(new GridLayout(4, 1));
+		frame.setLayout(new GridLayout(3, 1));
 
 		frame.add(carl);
-		frame.add(input);
-		frame.add(goals);
-		frame.add(panel);
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+		panel.add(input);
+		panel.add(Box.createRigidArea(new Dimension(0,5)));
 		panel.add(button);
+		frame.add(panel);
+		frame.add(goals);
 
 		frame.pack();
 		frame.setVisible(true);
-		frame.setSize(1600, 800);
+		frame.setSize(1000, 800);
 
 		int x = 0;
-		while(x < 150) {
+		while(x < 206) {
 			carl.moveCarlVertical();
 			carl.repaint();
 			Thread.sleep(2);
 			x++;
 		}
-
-		/*while(true) {
-			int x = 0;
-			while (x < 50) {
-				carl.moveCarlHorizontal();
-				carl.repaint();
-				Thread.sleep(10);
-				x++;
-			}
-			int y = 0;
-			while(y < 7) {
-				carl.moveCarlVertical();
-				carl.repaint();
-				Thread.sleep(10);
-				y++;
-			}
-		}*/
-
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if("submit".equals(e.getActionCommand())) {
 			
+			
 		}
-		
 	}
 }
